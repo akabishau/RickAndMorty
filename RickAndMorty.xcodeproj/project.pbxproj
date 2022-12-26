@@ -16,6 +16,9 @@
 		5BBDEBF129595D210057A628 /* EpisodesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDEBF029595D210057A628 /* EpisodesVC.swift */; };
 		5BBDEBF329595D380057A628 /* CharactersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDEBF229595D380057A628 /* CharactersVC.swift */; };
 		5BBDEBF529595D4D0057A628 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDEBF429595D4D0057A628 /* SettingsVC.swift */; };
+		5BBDEBF7295A1D0C0057A628 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDEBF6295A1D0C0057A628 /* Service.swift */; };
+		5BBDEBF9295A1D240057A628 /* RMRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDEBF8295A1D240057A628 /* RMRequest.swift */; };
+		5BBDEBFB295A1DA90057A628 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDEBFA295A1DA90057A628 /* Endpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		5BBDEBF029595D210057A628 /* EpisodesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesVC.swift; sourceTree = "<group>"; };
 		5BBDEBF229595D380057A628 /* CharactersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersVC.swift; sourceTree = "<group>"; };
 		5BBDEBF429595D4D0057A628 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		5BBDEBF6295A1D0C0057A628 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		5BBDEBF8295A1D240057A628 /* RMRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMRequest.swift; sourceTree = "<group>"; };
+		5BBDEBFA295A1DA90057A628 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,9 @@
 		5BBDEBE1295959830057A628 /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
+				5BBDEBF6295A1D0C0057A628 /* Service.swift */,
+				5BBDEBF8295A1D240057A628 /* RMRequest.swift */,
+				5BBDEBFA295A1DA90057A628 /* Endpoint.swift */,
 			);
 			path = APIClient;
 			sourceTree = "<group>";
@@ -211,11 +220,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BBDEBF329595D380057A628 /* CharactersVC.swift in Sources */,
+				5BBDEBF7295A1D0C0057A628 /* Service.swift in Sources */,
 				5BBDEBCF295957910057A628 /* MainTabBarVC.swift in Sources */,
 				5BBDEBCB295957910057A628 /* AppDelegate.swift in Sources */,
+				5BBDEBFB295A1DA90057A628 /* Endpoint.swift in Sources */,
 				5BBDEBEF29595CF50057A628 /* LocationsVC.swift in Sources */,
 				5BBDEBF129595D210057A628 /* EpisodesVC.swift in Sources */,
 				5BBDEBCD295957910057A628 /* SceneDelegate.swift in Sources */,
+				5BBDEBF9295A1D240057A628 /* RMRequest.swift in Sources */,
 				5BBDEBF529595D4D0057A628 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
