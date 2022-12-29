@@ -9,23 +9,25 @@ import UIKit
 
 class CharactersVC: UIViewController {
 	
+	private let characterListView = CharacterListView()
+	
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		title = "Characters"
+		setUpView()
+	}
+	
+	private func setUpView() {
 		
-		let request = RMRequest(endpoint: .character, queryParameters: [URLQueryItem(name: "name", value: "rick")])
+		view.addSubview(characterListView)
 		
-		
-		Service.shared.execute(request, expecting: AllCharactersResponse.self) { result in
-			switch result {
-				case .success(let model):
-					print(String(describing: model.info.count))
-					model.results.forEach({ print($0.name)})
-//					print(model.results.forEach({ $0.name }))
-				case .failure(let error):
-					print(error)
-			}
-		}
+		NSLayoutConstraint.activate([
+			characterListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+			characterListView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+			characterListView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+			characterListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+		])
 	}
 }
