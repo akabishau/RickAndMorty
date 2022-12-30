@@ -15,6 +15,9 @@ class CharacterListCell: UICollectionViewCell {
 		let imageView = UIImageView()
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 		imageView.contentMode = .scaleAspectFill
+		imageView.layer.cornerRadius = 8
+		// apply corner radious for only top-left and top-right corners
+		imageView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
 		imageView.clipsToBounds = true
 		return imageView
 	}()
@@ -39,8 +42,9 @@ class CharacterListCell: UICollectionViewCell {
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-
+		
 		layoutUI()
+		setUpCellLayer()
 	}
 	
 	required init?(coder: NSCoder) { fatalError() }
@@ -51,6 +55,11 @@ class CharacterListCell: UICollectionViewCell {
 		imageView.image = nil
 		nameLabel.text = nil
 		statusLabel.text = nil
+	}
+	
+	override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+		super.traitCollectionDidChange(previousTraitCollection)
+		setUpCellLayer()
 	}
 
 	
@@ -72,10 +81,18 @@ class CharacterListCell: UICollectionViewCell {
 		})
 	}
 	
+	private func setUpCellLayer() {
+		contentView.backgroundColor = .secondarySystemBackground
+		contentView.layer.cornerRadius = 8
+		
+		// when clipsToBounds is true the shadows are hidden
+		contentView.layer.shadowColor = UIColor.label.cgColor
+		contentView.layer.shadowOffset = .init(width: 2, height: 2)
+		contentView.layer.shadowOpacity = 0.3
+	}
+	
 	
 	private func layoutUI() {
-		backgroundColor = .secondarySystemBackground
-		
 		contentView.addSubviews(imageView, nameLabel, statusLabel)
 		
 		NSLayoutConstraint.activate([

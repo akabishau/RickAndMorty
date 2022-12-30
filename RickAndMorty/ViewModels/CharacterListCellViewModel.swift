@@ -27,7 +27,7 @@ final class CharacterListCellViewModel {
 	
 	
 	public var characterStatusText: String {
-		return characterStatus.rawValue
+		return "Status: \(characterStatus.rawValue.capitalized)"
 	}
 	
 	
