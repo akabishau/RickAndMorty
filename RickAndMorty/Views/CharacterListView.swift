@@ -38,6 +38,7 @@ final class CharacterListView: UIView {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		
+		viewModel.delegate = self
 		viewModel.fetchCharacters()
 		layoutUI()
 		setUpCollectionView()
@@ -49,17 +50,6 @@ final class CharacterListView: UIView {
 	private func setUpCollectionView() {
 		collectionView.dataSource = viewModel
 		collectionView.delegate = viewModel
-		
-		// temporary code to simulate fetching data and updating UI after it
-		DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-			
-			self.spinner.stopAnimating()
-			
-			UIView.animate(withDuration: 0.4) {
-				self.collectionView.isHidden = false
-				self.collectionView.alpha = 1
-			}
-		})
 	}
 	
 	
@@ -77,5 +67,20 @@ final class CharacterListView: UIView {
 			collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
 			collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
 		])
+	}
+}
+
+
+extension CharacterListView: CharacterListViewViewModelDelegate {
+	
+	func didLoadInitialCharacters() {
+		print(#function)
+
+		self.spinner.stopAnimating()
+		
+		UIView.animate(withDuration: 0.4) {
+			self.collectionView.isHidden = false
+			self.collectionView.alpha = 1
+		}
 	}
 }

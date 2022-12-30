@@ -8,7 +8,13 @@
 import UIKit
 
 
+protocol CharacterListViewViewModelDelegate: AnyObject {
+	func didLoadInitialCharacters()
+}
+
 final class CharacterListViewViewModel: NSObject {
+	
+	public weak var delegate: CharacterListViewViewModelDelegate?
 	
 	private var characters: [Character] = [] {
 		didSet {
@@ -34,6 +40,9 @@ final class CharacterListViewViewModel: NSObject {
 			switch result {
 				case .success(let responseModel):
 					self.characters = responseModel.results
+					DispatchQueue.main.async {
+						self.delegate?.didLoadInitialCharacters()
+					}
 				case .failure(let error):
 					print(error)
 			}
