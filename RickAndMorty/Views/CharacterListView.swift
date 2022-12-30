@@ -74,9 +74,8 @@ final class CharacterListView: UIView {
 extension CharacterListView: CharacterListViewViewModelDelegate {
 	
 	func didLoadInitialCharacters() {
-		print(#function)
-
-		self.spinner.stopAnimating()
+		collectionView.reloadData()
+		spinner.stopAnimating()
 		
 		UIView.animate(withDuration: 0.4) {
 			self.collectionView.isHidden = false

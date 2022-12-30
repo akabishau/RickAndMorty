@@ -36,17 +36,13 @@ final class CharacterListCellViewModel {
 
 		guard let url = characterImageUrl else {
 			completion(.failure(URLError(.badURL)))
-			print("image url")
 			return
 		}
-		print(url)
 		let request = URLRequest(url: url)
-		print(request)
 		URLSession.shared.dataTask(with: request) { data, _, error in
 			
 			guard let data = data, error == nil else {
 				completion(.failure(URLError(.badServerResponse)))
-				print("bad response")
 				return
 			}
 			
