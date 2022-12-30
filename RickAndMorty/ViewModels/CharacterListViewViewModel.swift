@@ -10,15 +10,30 @@ import UIKit
 
 final class CharacterListViewViewModel: NSObject {
 	
+	private var characters: [Character] = [] {
+		didSet {
+			for character in characters {
+				let viewModel = CharacterListCellViewModel(
+					characterName: character.name,
+					characterStatus: character.status,
+					characterImageUrl: URL(string: character.image))
+				cellViewModels.append(viewModel)
+			}
+		}
+	}
+	
+	// using this to add more models when the data for the next page fetched
+	private var cellViewModels: [CharacterListCellViewModel] = []
+	
 	public func fetchCharacters() {
 		
 		let request = RMRequest(endpoint: .character, queryParameters: [URLQueryItem(name: "name", value: "rick")])
 		
-		Service.shared.execute(request, expecting: AllCharactersResponse.self) { result in
+		Service.shared.execute(request, expecting: AllCharactersResponse.self) { [weak self] result in
+			guard let self = self else { return }
 			switch result {
-				case .success(let model):
-					print(String(describing: model.info.count))
-					model.results.forEach({ print($0.name)})
+				case .success(let responseModel):
+					self.characters = responseModel.results
 				case .failure(let error):
 					print(error)
 			}
@@ -30,15 +45,13 @@ final class CharacterListViewViewModel: NSObject {
 extension CharacterListViewViewModel: UICollectionViewDataSource {
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 20
+		return cellViewModels.count
 	}
 	
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterListCell.reuseId, for: indexPath) as! CharacterListCell
-		
-		//TODO: - replace with actual data
-		cell.configure(with: CharacterListCellViewModel(characterName: "Lesha", characterStatus: .alive, characterImageUrl: URL(string: "https://rickandmortyapi.com/api/character/avatar/1.jpeg")))
+		cell.configure(with: cellViewModels[indexPath.item])
 		return cell
 	}
 }
