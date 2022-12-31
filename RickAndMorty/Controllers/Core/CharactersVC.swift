@@ -20,7 +20,7 @@ class CharactersVC: UIViewController {
 	}
 	
 	private func setUpView() {
-		
+		characterListView.delegate = self
 		view.addSubview(characterListView)
 		
 		NSLayoutConstraint.activate([
@@ -29,5 +29,16 @@ class CharactersVC: UIViewController {
 			characterListView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
 			characterListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
 		])
+	}
+}
+
+
+extension CharactersVC: CharacterListViewDelegate {
+	
+	func characterListView(_ characterListView: CharacterListView, didSelect character: Character) {
+		print(#function)
+		
+		let characterDetailVC = CharacterDetailVC()
+		navigationController?.pushViewController(characterDetailVC, animated: true)
 	}
 }

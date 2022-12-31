@@ -10,6 +10,7 @@ import UIKit
 
 protocol CharacterListViewViewModelDelegate: AnyObject {
 	func didLoadInitialCharacters()
+	func didSelectCharacter(_ character: Character)
 }
 
 final class CharacterListViewViewModel: NSObject {
@@ -47,6 +48,17 @@ final class CharacterListViewViewModel: NSObject {
 					print(error)
 			}
 		}
+	}
+}
+
+
+extension CharacterListViewViewModel: UICollectionViewDelegate {
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		print(#function)
+		//TODO: - review using characters after implementing infinite scrolling
+		let character = characters[indexPath.item]
+		delegate?.didSelectCharacter(character)
 	}
 }
 

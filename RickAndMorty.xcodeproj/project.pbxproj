@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5B4A1C3B295E10D800D21379 /* CharacterListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4A1C3A295E10D800D21379 /* CharacterListCell.swift */; };
 		5B4A1C3D295E126A00D21379 /* CharacterListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4A1C3C295E126A00D21379 /* CharacterListCellViewModel.swift */; };
+		5B4A1C402961010A00D21379 /* CharacterDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4A1C3F2961010A00D21379 /* CharacterDetailVC.swift */; };
 		5BBDEBCB295957910057A628 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDEBCA295957910057A628 /* AppDelegate.swift */; };
 		5BBDEBCD295957910057A628 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDEBCC295957910057A628 /* SceneDelegate.swift */; };
 		5BBDEBCF295957910057A628 /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDEBCE295957910057A628 /* MainTabBarVC.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		5B4A1C3A295E10D800D21379 /* CharacterListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListCell.swift; sourceTree = "<group>"; };
 		5B4A1C3C295E126A00D21379 /* CharacterListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListCellViewModel.swift; sourceTree = "<group>"; };
+		5B4A1C3F2961010A00D21379 /* CharacterDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailVC.swift; sourceTree = "<group>"; };
 		5BBDEBC7295957910057A628 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BBDEBCA295957910057A628 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BBDEBCC295957910057A628 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B4A1C3E296100D600D21379 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				5B4A1C3F2961010A00D21379 /* CharacterDetailVC.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		5BBDEBBE295957910057A628 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +125,7 @@
 			children = (
 				5BBDEBCE295957910057A628 /* MainTabBarVC.swift */,
 				5BBDEBE529595B8E0057A628 /* Core */,
+				5B4A1C3E296100D600D21379 /* Other */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -265,6 +276,7 @@
 				5BBDEC02295A9F640057A628 /* Episode.swift in Sources */,
 				5B4A1C3B295E10D800D21379 /* CharacterListCell.swift in Sources */,
 				5BBDEC0A295D3D0C0057A628 /* CharacterListViewViewModel.swift in Sources */,
+				5B4A1C402961010A00D21379 /* CharacterDetailVC.swift in Sources */,
 				5BBDEC04295B966C0057A628 /* AllCharactersResponse.swift in Sources */,
 				5BBDEC0F295D432C0057A628 /* Extensions.swift in Sources */,
 				5B4A1C3D295E126A00D21379 /* CharacterListCellViewModel.swift in Sources */,

@@ -7,9 +7,16 @@
 
 import UIKit
 
+protocol CharacterListViewDelegate: AnyObject {
+	// standard naming convention for view protocol (similar to collection view)
+	func characterListView(_ characterListView: CharacterListView, didSelect character: Character)
+}
+
 final class CharacterListView: UIView {
 	
 	private let viewModel = CharacterListViewViewModel()
+	
+	public weak var delegate: CharacterListViewDelegate?
 	
 	
 	private let spinner: UIActivityIndicatorView = {
@@ -81,5 +88,11 @@ extension CharacterListView: CharacterListViewViewModelDelegate {
 			self.collectionView.isHidden = false
 			self.collectionView.alpha = 1
 		}
+	}
+	
+	
+	func didSelectCharacter(_ character: Character) {
+		print(#function)
+		delegate?.characterListView(self, didSelect: character)
 	}
 }
