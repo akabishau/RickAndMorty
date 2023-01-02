@@ -38,7 +38,9 @@ extension CharactersVC: CharacterListViewDelegate {
 	func characterListView(_ characterListView: CharacterListView, didSelect character: Character) {
 		print(#function)
 		
-		let characterDetailVC = CharacterDetailVC()
+		let viewModel = CharacterDetailViewViewModel(character: character)
+		let characterDetailVC = CharacterDetailVC(viewModel: viewModel)
+		characterDetailVC.navigationItem.largeTitleDisplayMode = .never
 		navigationController?.pushViewController(characterDetailVC, animated: true)
 	}
 }

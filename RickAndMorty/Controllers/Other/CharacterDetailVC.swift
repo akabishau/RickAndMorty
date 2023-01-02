@@ -9,10 +9,20 @@ import UIKit
 
 class CharacterDetailVC: UIViewController {
 	
+	private let viewModel: CharacterDetailViewViewModel
+	
+	init(viewModel: CharacterDetailViewViewModel) {
+		self.viewModel = viewModel
+		super.init(nibName: nil, bundle: nil)
+	}
+	
+	required init?(coder: NSCoder) { fatalError() }
+	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		view.backgroundColor = .systemYellow
+		title = viewModel.title
+		view.backgroundColor = .systemBackground
 	}
 }
