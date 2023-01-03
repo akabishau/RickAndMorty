@@ -36,6 +36,7 @@ final class CharacterListView: UIView {
 		let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
 		collectionView.translatesAutoresizingMaskIntoConstraints = false
 		collectionView.register(CharacterListCell.self, forCellWithReuseIdentifier: CharacterListCell.reuseId)
+		collectionView.register(ListFooterLoadingView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: ListFooterLoadingView.reuseId)
 		collectionView.isHidden = true
 		collectionView.alpha = 0
 		return collectionView

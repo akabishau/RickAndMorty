@@ -94,6 +94,18 @@ extension CharacterListViewViewModel: UICollectionViewDataSource {
 		cell.configure(with: cellViewModels[indexPath.item])
 		return cell
 	}
+	
+	
+	func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+		
+		guard kind == UICollectionView.elementKindSectionFooter else {
+			return UICollectionReusableView(frame: .zero)
+		}
+		
+		let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: ListFooterLoadingView.reuseId, for: indexPath) as! ListFooterLoadingView
+		footer.startAnimating()
+		return footer
+	}
 }
 
 
@@ -102,6 +114,14 @@ extension CharacterListViewViewModel: UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		let cellWidth = (UIScreen.main.bounds.width - 30) / 2
 		return .init(width: cellWidth, height: cellWidth * 1.5)
+	}
+	
+	
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+		if !shouldShowLoadMoreIndicator {
+			return .zero
+		}
+		return CGSize(width: collectionView.frame.width, height: 100)
 	}
 }
 
@@ -112,15 +132,18 @@ extension CharacterListViewViewModel: UIScrollViewDelegate {
 	
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		
+		// the second condition allows to avoid multiple fetching requests
 		guard shouldShowLoadMoreIndicator, !isLoadingMoreCharacters else { return }
 		
 		let offset = scrollView.contentOffset.y
 		let totalContentHeight = scrollView.contentSize.height
 		let totalScrollViewFixedHeight = scrollView.frame.size.height
 		
+		// this logic show when scrolling reached the bottom of the scroll view
 		if offset >= (totalContentHeight - totalScrollViewFixedHeight) {
 			print("load next set of data")
 			fetchAdditionalCharacters()
 		}
+		print(offset, totalContentHeight, totalScrollViewFixedHeight)
 	}
 }

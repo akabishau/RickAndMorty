@@ -31,6 +31,7 @@
 		5BBDEC0C295D3D370057A628 /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDEC0B295D3D370057A628 /* CharacterListView.swift */; };
 		5BBDEC0F295D432C0057A628 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDEC0E295D432C0057A628 /* Extensions.swift */; };
 		5BD868B329628D9500086370 /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD868B229628D9500086370 /* CharacterDetailView.swift */; };
+		5BD868B5296478AB00086370 /* ListFooterLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD868B4296478AB00086370 /* ListFooterLoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		5BBDEC0B295D3D370057A628 /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
 		5BBDEC0E295D432C0057A628 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5BD868B229628D9500086370 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
+		5BD868B4296478AB00086370 /* ListFooterLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFooterLoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 				5BBDEC0B295D3D370057A628 /* CharacterListView.swift */,
 				5B4A1C3A295E10D800D21379 /* CharacterListCell.swift */,
 				5BD868B229628D9500086370 /* CharacterDetailView.swift */,
+				5BD868B4296478AB00086370 /* ListFooterLoadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				5B4A1C402961010A00D21379 /* CharacterDetailVC.swift in Sources */,
 				5BBDEC04295B966C0057A628 /* AllCharactersResponse.swift in Sources */,
 				5BBDEC0F295D432C0057A628 /* Extensions.swift in Sources */,
+				5BD868B5296478AB00086370 /* ListFooterLoadingView.swift in Sources */,
 				5B4A1C3D295E126A00D21379 /* CharacterListCellViewModel.swift in Sources */,
 				5BBDEBF129595D210057A628 /* EpisodesVC.swift in Sources */,
 				5BBDEBCD295957910057A628 /* SceneDelegate.swift in Sources */,
