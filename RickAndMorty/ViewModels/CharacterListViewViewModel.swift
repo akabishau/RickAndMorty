@@ -32,6 +32,8 @@ final class CharacterListViewViewModel: NSObject {
 	// using this to add more models when the data for the next page fetched
 	private var cellViewModels: [CharacterListCellViewModel] = []
 	
+	
+	/// Fetch the intial set of characters
 	public func fetchCharacters() {
 		
 		let request = RMRequest(endpoint: .character, queryParameters: [URLQueryItem(name: "name", value: "rick")])
@@ -41,6 +43,7 @@ final class CharacterListViewViewModel: NSObject {
 			switch result {
 				case .success(let responseModel):
 					self.characters = responseModel.results
+					self.apiInfo = responseModel.info
 					DispatchQueue.main.async {
 						self.delegate?.didLoadInitialCharacters()
 					}
@@ -49,8 +52,24 @@ final class CharacterListViewViewModel: NSObject {
 			}
 		}
 	}
+	
+	
+	// MARK: - Additional Character Load
+	
+	private var apiInfo: AllCharactersResponse.Info? = nil
+	private var isLoadingMoreCharacters = false
+	public var shouldShowLoadMoreIndicator: Bool {
+		return apiInfo?.next != nil
+	}
+	
+	/// Paginate if additional characters are needed
+	public func fetchAdditionalCharacters() {
+		isLoadingMoreCharacters = true
+		print(#function)
+	}
 }
 
+//MARK: - Collection View
 
 extension CharacterListViewViewModel: UICollectionViewDelegate {
 	
@@ -83,5 +102,25 @@ extension CharacterListViewViewModel: UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		let cellWidth = (UIScreen.main.bounds.width - 30) / 2
 		return .init(width: cellWidth, height: cellWidth * 1.5)
+	}
+}
+
+
+//MARK: - Scroll View
+
+extension CharacterListViewViewModel: UIScrollViewDelegate {
+	
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		
+		guard shouldShowLoadMoreIndicator, !isLoadingMoreCharacters else { return }
+		
+		let offset = scrollView.contentOffset.y
+		let totalContentHeight = scrollView.contentSize.height
+		let totalScrollViewFixedHeight = scrollView.frame.size.height
+		
+		if offset >= (totalContentHeight - totalScrollViewFixedHeight) {
+			print("load next set of data")
+			fetchAdditionalCharacters()
+		}
 	}
 }
