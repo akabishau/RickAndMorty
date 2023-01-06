@@ -63,9 +63,30 @@ final class CharacterListViewViewModel: NSObject {
 	}
 	
 	/// Paginate if additional characters are needed
-	public func fetchAdditionalCharacters() {
+	public func fetchAdditionalCharacters(url: URL) {
 		isLoadingMoreCharacters = true
 		print(#function)
+		
+		guard let request = RMRequest(url: url) else {
+			isLoadingMoreCharacters = false
+			print("failed to create request")
+			return
+		}
+		
+		Service.shared.execute(request, expecting: AllCharactersResponse.self) { [weak self] result in
+			guard let self = self else { return }
+			switch result {
+				case .success(let responseModel):
+					self.characters.append(contentsOf: responseModel.results)
+					self.apiInfo = responseModel.info
+					self.isLoadingMoreCharacters = false
+					DispatchQueue.main.async {
+						print("notify collection view that additional characters are loaded - delegate pattern")
+					}
+				case .failure(let error):
+					print(String(describing: error))
+			}
+		}
 	}
 }
 
@@ -133,7 +154,10 @@ extension CharacterListViewViewModel: UIScrollViewDelegate {
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		
 		// the second condition allows to avoid multiple fetching requests
-		guard shouldShowLoadMoreIndicator, !isLoadingMoreCharacters else { return }
+		guard shouldShowLoadMoreIndicator,
+				!isLoadingMoreCharacters,
+			  let url = URL(string: apiInfo?.next ?? "")
+		else { return }
 		
 		let offset = scrollView.contentOffset.y
 		let totalContentHeight = scrollView.contentSize.height
@@ -142,8 +166,8 @@ extension CharacterListViewViewModel: UIScrollViewDelegate {
 		// this logic show when scrolling reached the bottom of the scroll view
 		if offset >= (totalContentHeight - totalScrollViewFixedHeight) {
 			print("load next set of data")
-			fetchAdditionalCharacters()
+			fetchAdditionalCharacters(url: url)
 		}
-		print(offset, totalContentHeight, totalScrollViewFixedHeight)
+//		print(offset, totalContentHeight, totalScrollViewFixedHeight)
 	}
 }
