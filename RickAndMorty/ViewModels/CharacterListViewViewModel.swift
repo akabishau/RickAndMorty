@@ -70,7 +70,6 @@ final class CharacterListViewViewModel: NSObject {
 	/// Paginate if additional characters are needed
 	public func fetchAdditionalCharacters(url: URL) {
 		isLoadingMoreCharacters = true
-		print(#function)
 		
 		guard let request = RMRequest(url: url) else {
 			isLoadingMoreCharacters = false
@@ -180,9 +179,7 @@ extension CharacterListViewViewModel: UIScrollViewDelegate {
 		
 		// this logic show when scrolling reached the bottom of the scroll view
 		if offset >= (totalContentHeight - totalScrollViewFixedHeight) {
-			print("load next set of data")
 			fetchAdditionalCharacters(url: url)
 		}
-//		print(offset, totalContentHeight, totalScrollViewFixedHeight)
 	}
 }

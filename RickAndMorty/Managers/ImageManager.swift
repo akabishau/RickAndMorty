@@ -17,7 +17,7 @@ final class ImageManager {
 	
 	
 	public func downloadImage(from url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
-		print(#function)
+
 		let key = url.absoluteString as NSString
 		
 		if let data = imageDataCache.object(forKey: key) {
