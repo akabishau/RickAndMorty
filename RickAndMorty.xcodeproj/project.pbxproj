@@ -32,6 +32,7 @@
 		5BBDEC0F295D432C0057A628 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDEC0E295D432C0057A628 /* Extensions.swift */; };
 		5BD868B329628D9500086370 /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD868B229628D9500086370 /* CharacterDetailView.swift */; };
 		5BD868B5296478AB00086370 /* ListFooterLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD868B4296478AB00086370 /* ListFooterLoadingView.swift */; };
+		5BE15213296B276600BE7DB8 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE15212296B276600BE7DB8 /* ImageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		5BBDEC0E295D432C0057A628 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5BD868B229628D9500086370 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
 		5BD868B4296478AB00086370 /* ListFooterLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFooterLoadingView.swift; sourceTree = "<group>"; };
+		5BE15212296B276600BE7DB8 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 		5BBDEBE02959597A0057A628 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				5BE15212296B276600BE7DB8 /* ImageManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				5BBDEBF329595D380057A628 /* CharactersVC.swift in Sources */,
 				5B4A1C42296104AB00D21379 /* CharacterDetailViewViewModel.swift in Sources */,
 				5BBDEBF7295A1D0C0057A628 /* Service.swift in Sources */,
+				5BE15213296B276600BE7DB8 /* ImageManager.swift in Sources */,
 				5BBDEBFE295A9BE80057A628 /* Character.swift in Sources */,
 				5BBDEBCF295957910057A628 /* MainTabBarVC.swift in Sources */,
 				5BBDEBCB295957910057A628 /* AppDelegate.swift in Sources */,

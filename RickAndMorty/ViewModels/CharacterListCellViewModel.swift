@@ -52,16 +52,7 @@ final class CharacterListCellViewModel: Hashable, Equatable {
 			completion(.failure(URLError(.badURL)))
 			return
 		}
-		let request = URLRequest(url: url)
-		URLSession.shared.dataTask(with: request) { data, _, error in
-			
-			guard let data = data, error == nil else {
-				completion(.failure(URLError(.badServerResponse)))
-				return
-			}
-			
-			completion(.success(data))
-			
-		}.resume()
+		
+		ImageManager.shared.downloadImage(from: url, completion: completion)
 	}
 }
