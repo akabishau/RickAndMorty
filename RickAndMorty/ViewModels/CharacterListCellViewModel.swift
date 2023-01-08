@@ -8,7 +8,7 @@
 import Foundation
 
 
-final class CharacterListCellViewModel {
+final class CharacterListCellViewModel: Hashable, Equatable {
 	
 	private let characterName: String
 	private let characterStatus: CharacterStatus
@@ -21,6 +21,20 @@ final class CharacterListCellViewModel {
 	}
 	
 	
+	//MARK: - Hashable, Equatable
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(characterName)
+		hasher.combine(characterStatus)
+		hasher.combine(characterImageUrl)
+	}
+	
+
+	static func == (lhs: CharacterListCellViewModel, rhs: CharacterListCellViewModel) -> Bool {
+		return lhs.hashValue == rhs.hashValue
+	}
+	
+	
+	//MARK: - Public
 	public var characterNameText: String {
 		return characterName.capitalized
 	}

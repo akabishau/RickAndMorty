@@ -10,8 +10,10 @@ import UIKit
 
 protocol CharacterListViewViewModelDelegate: AnyObject {
 	func didLoadInitialCharacters()
+	func didLoadMoreCharacters(with newIndexPaths: [IndexPath])
 	func didSelectCharacter(_ character: Character)
 }
+
 
 final class CharacterListViewViewModel: NSObject {
 	
@@ -24,7 +26,10 @@ final class CharacterListViewViewModel: NSObject {
 					characterName: character.name,
 					characterStatus: character.status,
 					characterImageUrl: URL(string: character.image))
-				cellViewModels.append(viewModel)
+				// cellViewModel must confirm hashable/equatable to use contains element method
+				if !cellViewModels.contains(viewModel) {
+					cellViewModels.append(viewModel)
+				}
 			}
 		}
 	}
@@ -77,13 +82,23 @@ final class CharacterListViewViewModel: NSObject {
 			guard let self = self else { return }
 			switch result {
 				case .success(let responseModel):
+					
+					// calculate index paths for delegate function below
+					let beforeCount = self.cellViewModels.count
+					let newCount = responseModel.results.count
+					let totalCount = beforeCount + newCount
+					let startingIndex = totalCount - newCount
+					let indexPathsToAdd: [IndexPath] = Array(startingIndex..<(startingIndex + newCount)).compactMap({ return IndexPath(row: $0, section: 0)})
+					
 					self.characters.append(contentsOf: responseModel.results)
 					self.apiInfo = responseModel.info
-					self.isLoadingMoreCharacters = false
+					
 					DispatchQueue.main.async {
-						print("notify collection view that additional characters are loaded - delegate pattern")
+						self.delegate?.didLoadMoreCharacters(with: indexPathsToAdd)
+						self.isLoadingMoreCharacters = false
 					}
 				case .failure(let error):
+					self.isLoadingMoreCharacters = false
 					print(String(describing: error))
 			}
 		}
