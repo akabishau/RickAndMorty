@@ -10,9 +10,11 @@ import UIKit
 class CharacterDetailVC: UIViewController {
 	
 	private let viewModel: CharacterDetailViewViewModel
+	private let detailView: CharacterDetailView
 	
 	init(viewModel: CharacterDetailViewViewModel) {
 		self.viewModel = viewModel
+		self.detailView = CharacterDetailView(frame: .zero, viewModel: viewModel)
 		super.init(nibName: nil, bundle: nil)
 	}
 	
@@ -24,5 +26,48 @@ class CharacterDetailVC: UIViewController {
 		
 		title = viewModel.title
 		view.backgroundColor = .systemBackground
+		layoutUI()
+		detailView.collectionView.dataSource = self
+	}
+	
+	
+	private func layoutUI() {
+		detailView.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(detailView)
+		
+		NSLayoutConstraint.activate([
+			detailView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+			detailView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+			detailView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+			detailView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+		])
+	}
+}
+
+
+extension CharacterDetailVC: UICollectionViewDataSource {
+	
+	func numberOfSections(in collectionView: UICollectionView) -> Int {
+		return viewModel.sections.count
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		let sectionType = viewModel.sections[section]
+		switch sectionType {
+			case .photo:
+				return 1
+		}
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		
+		let sectionType = viewModel.sections[indexPath.section]
+		
+		switch sectionType {
+			case .photo(let photoCellViewModel):
+				let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterPhotoCell.reuseId, for: indexPath) as! CharacterPhotoCell
+				cell.configure(with: photoCellViewModel)
+				return cell
+		}
 	}
 }

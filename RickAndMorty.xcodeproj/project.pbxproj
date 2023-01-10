@@ -33,6 +33,8 @@
 		5BD868B329628D9500086370 /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD868B229628D9500086370 /* CharacterDetailView.swift */; };
 		5BD868B5296478AB00086370 /* ListFooterLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD868B4296478AB00086370 /* ListFooterLoadingView.swift */; };
 		5BE15213296B276600BE7DB8 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE15212296B276600BE7DB8 /* ImageManager.swift */; };
+		5BE15221296CCD2100BE7DB8 /* CharacterPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE15220296CCD2100BE7DB8 /* CharacterPhotoCell.swift */; };
+		5BE15226296CD26500BE7DB8 /* CharacterPhotoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE15225296CD26500BE7DB8 /* CharacterPhotoCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		5BD868B229628D9500086370 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
 		5BD868B4296478AB00086370 /* ListFooterLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFooterLoadingView.swift; sourceTree = "<group>"; };
 		5BE15212296B276600BE7DB8 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		5BE15220296CCD2100BE7DB8 /* CharacterPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPhotoCell.swift; sourceTree = "<group>"; };
+		5BE15225296CD26500BE7DB8 /* CharacterPhotoCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPhotoCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,7 +222,6 @@
 			children = (
 				5B4A1C3F2961010A00D21379 /* CharacterDetailVC.swift */,
 				5BE1521E296C669D00BE7DB8 /* Views */,
-				5BD868B229628D9500086370 /* CharacterDetailView.swift */,
 				5BE1521F296C66B200BE7DB8 /* ViewModels */,
 			);
 			path = CharacterDetails;
@@ -251,6 +254,8 @@
 		5BE1521E296C669D00BE7DB8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5BD868B229628D9500086370 /* CharacterDetailView.swift */,
+				5BE15220296CCD2100BE7DB8 /* CharacterPhotoCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				5B4A1C41296104AB00D21379 /* CharacterDetailViewViewModel.swift */,
+				5BE15225296CD26500BE7DB8 /* CharacterPhotoCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -340,11 +346,13 @@
 				5BBDEBFE295A9BE80057A628 /* Character.swift in Sources */,
 				5BBDEBCF295957910057A628 /* MainTabBarVC.swift in Sources */,
 				5BBDEBCB295957910057A628 /* AppDelegate.swift in Sources */,
+				5BE15221296CCD2100BE7DB8 /* CharacterPhotoCell.swift in Sources */,
 				5BBDEBFB295A1DA90057A628 /* Endpoint.swift in Sources */,
 				5BBDEC0C295D3D370057A628 /* CharacterListView.swift in Sources */,
 				5BBDEBEF29595CF50057A628 /* LocationsVC.swift in Sources */,
 				5BD868B329628D9500086370 /* CharacterDetailView.swift in Sources */,
 				5BBDEC02295A9F640057A628 /* Episode.swift in Sources */,
+				5BE15226296CD26500BE7DB8 /* CharacterPhotoCellViewModel.swift in Sources */,
 				5B4A1C3B295E10D800D21379 /* CharacterListCell.swift in Sources */,
 				5BBDEC0A295D3D0C0057A628 /* CharacterListViewViewModel.swift in Sources */,
 				5B4A1C402961010A00D21379 /* CharacterDetailVC.swift in Sources */,
