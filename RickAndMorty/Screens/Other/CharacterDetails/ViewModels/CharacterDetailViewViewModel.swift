@@ -10,14 +10,18 @@ import UIKit
 
 class CharacterDetailViewViewModel {
 	
+	//MARK: - Private
 	private let character: Character
 	
+	
+	//MARK: - Init
 	init(character: Character) {
 		self.character = character
 		setUpSections()
 	}
 	
 	
+	//MARK: - Public
 	public var title: String {
 		return character.name.uppercased()
 	}
@@ -34,14 +38,21 @@ class CharacterDetailViewViewModel {
 	private func setUpSections() {
 		sections = [
 			.photo(viewModel: .init(imageUrl: character.image)),
-			.info(viewModels: [.init(), .init(), .init(), .init()])
+			.info(viewModels:
+					[.init(type: .status, value: character.status.rawValue),
+					 .init(type: .gender, value: character.gender.rawValue),
+					 .init(type: .type, value: character.type),
+					 .init(type: .species, value: character.species),
+					 .init(type: .origin, value: character.origin.name),
+					 .init(type: .created, value: character.created),
+					 .init(type: .location, value: character.location.name),
+					 .init(type: .episodeCount, value: String(character.episode.count))
+					])
 		]
 	}
 	
 	
 	//MARK: - Compositional Layout
-	
-	
 	public func createPhotoSectionLayout() -> NSCollectionLayoutSection {
 		
 		let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1))
