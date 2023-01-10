@@ -35,6 +35,8 @@
 		5BE15213296B276600BE7DB8 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE15212296B276600BE7DB8 /* ImageManager.swift */; };
 		5BE15221296CCD2100BE7DB8 /* CharacterPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE15220296CCD2100BE7DB8 /* CharacterPhotoCell.swift */; };
 		5BE15226296CD26500BE7DB8 /* CharacterPhotoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE15225296CD26500BE7DB8 /* CharacterPhotoCellViewModel.swift */; };
+		5BE15228296DC2EA00BE7DB8 /* CharacterInfoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE15227296DC2EA00BE7DB8 /* CharacterInfoCellViewModel.swift */; };
+		5BE1522A296DC8CA00BE7DB8 /* CharacterInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE15229296DC8CA00BE7DB8 /* CharacterInfoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		5BE15212296B276600BE7DB8 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		5BE15220296CCD2100BE7DB8 /* CharacterPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPhotoCell.swift; sourceTree = "<group>"; };
 		5BE15225296CD26500BE7DB8 /* CharacterPhotoCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPhotoCellViewModel.swift; sourceTree = "<group>"; };
+		5BE15227296DC2EA00BE7DB8 /* CharacterInfoCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoCellViewModel.swift; sourceTree = "<group>"; };
+		5BE15229296DC8CA00BE7DB8 /* CharacterInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +260,7 @@
 			children = (
 				5BD868B229628D9500086370 /* CharacterDetailView.swift */,
 				5BE15220296CCD2100BE7DB8 /* CharacterPhotoCell.swift */,
+				5BE15229296DC8CA00BE7DB8 /* CharacterInfoCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 			children = (
 				5B4A1C41296104AB00D21379 /* CharacterDetailViewViewModel.swift */,
 				5BE15225296CD26500BE7DB8 /* CharacterPhotoCellViewModel.swift */,
+				5BE15227296DC2EA00BE7DB8 /* CharacterInfoCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -355,8 +361,10 @@
 				5BE15226296CD26500BE7DB8 /* CharacterPhotoCellViewModel.swift in Sources */,
 				5B4A1C3B295E10D800D21379 /* CharacterListCell.swift in Sources */,
 				5BBDEC0A295D3D0C0057A628 /* CharacterListViewViewModel.swift in Sources */,
+				5BE15228296DC2EA00BE7DB8 /* CharacterInfoCellViewModel.swift in Sources */,
 				5B4A1C402961010A00D21379 /* CharacterDetailVC.swift in Sources */,
 				5BBDEC04295B966C0057A628 /* AllCharactersResponse.swift in Sources */,
+				5BE1522A296DC8CA00BE7DB8 /* CharacterInfoCell.swift in Sources */,
 				5BBDEC0F295D432C0057A628 /* Extensions.swift in Sources */,
 				5BD868B5296478AB00086370 /* ListFooterLoadingView.swift in Sources */,
 				5B4A1C3D295E126A00D21379 /* CharacterListCellViewModel.swift in Sources */,

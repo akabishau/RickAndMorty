@@ -16,6 +16,7 @@ final class CharacterPhotoCell: UICollectionViewCell {
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 		imageView.contentMode = .scaleAspectFill
 		imageView.backgroundColor = .systemOrange
+		imageView.clipsToBounds = true
 		return imageView
 	}()
 	

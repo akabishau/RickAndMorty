@@ -56,6 +56,8 @@ extension CharacterDetailVC: UICollectionViewDataSource {
 		switch sectionType {
 			case .photo:
 				return 1
+			case .info(let infoViewModels):
+				return infoViewModels.count
 		}
 	}
 	
@@ -67,6 +69,10 @@ extension CharacterDetailVC: UICollectionViewDataSource {
 			case .photo(let photoCellViewModel):
 				let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterPhotoCell.reuseId, for: indexPath) as! CharacterPhotoCell
 				cell.configure(with: photoCellViewModel)
+				return cell
+			case .info(let infoViewModels):
+				let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterInfoCell.reuseId, for: indexPath) as! CharacterInfoCell
+				cell.configure(with: infoViewModels[indexPath.item])
 				return cell
 		}
 	}

@@ -35,6 +35,7 @@ class CharacterDetailView: UIView {
 		// configure collectio view with the layout
 		let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
 		collectionView.register(CharacterPhotoCell.self, forCellWithReuseIdentifier: CharacterPhotoCell.reuseId)
+		collectionView.register(CharacterInfoCell.self, forCellWithReuseIdentifier: CharacterInfoCell.reuseId)
 		self.collectionView = collectionView
 	}
 	
@@ -44,6 +45,8 @@ class CharacterDetailView: UIView {
 		switch sectionType {
 			case .photo:
 				return viewModel.createPhotoSectionLayout()
+			case .info:
+				return viewModel.createInfoSectionLayout()
 		}
 	}
 	
