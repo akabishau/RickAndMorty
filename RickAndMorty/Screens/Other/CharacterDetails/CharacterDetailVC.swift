@@ -58,6 +58,8 @@ extension CharacterDetailVC: UICollectionViewDataSource {
 				return 1
 			case .info(let infoViewModels):
 				return infoViewModels.count
+			case .episode(let episodeViewModels):
+				return episodeViewModels.count
 		}
 	}
 	
@@ -73,6 +75,10 @@ extension CharacterDetailVC: UICollectionViewDataSource {
 			case .info(let infoViewModels):
 				let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterInfoCell.reuseId, for: indexPath) as! CharacterInfoCell
 				cell.configure(with: infoViewModels[indexPath.item])
+				return cell
+			case .episode(let episodeViewModels):
+				let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterEpisodeCell.reuseId, for: indexPath) as! CharacterEpisodeCell
+				cell.configure(with: episodeViewModels[indexPath.item])
 				return cell
 		}
 	}

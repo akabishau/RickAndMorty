@@ -11,6 +11,8 @@
 		5B4A1C3D295E126A00D21379 /* CharacterListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4A1C3C295E126A00D21379 /* CharacterListCellViewModel.swift */; };
 		5B4A1C402961010A00D21379 /* CharacterDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4A1C3F2961010A00D21379 /* CharacterDetailVC.swift */; };
 		5B4A1C42296104AB00D21379 /* CharacterDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4A1C41296104AB00D21379 /* CharacterDetailViewViewModel.swift */; };
+		5B8807D82971B96100B81FDA /* CharacterEpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8807D72971B96100B81FDA /* CharacterEpisodeCell.swift */; };
+		5B8807DA2971B97300B81FDA /* CharacterEpisodeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8807D92971B97300B81FDA /* CharacterEpisodeCellViewModel.swift */; };
 		5BBDEBCB295957910057A628 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDEBCA295957910057A628 /* AppDelegate.swift */; };
 		5BBDEBCD295957910057A628 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDEBCC295957910057A628 /* SceneDelegate.swift */; };
 		5BBDEBCF295957910057A628 /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBDEBCE295957910057A628 /* MainTabBarVC.swift */; };
@@ -44,6 +46,8 @@
 		5B4A1C3C295E126A00D21379 /* CharacterListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListCellViewModel.swift; sourceTree = "<group>"; };
 		5B4A1C3F2961010A00D21379 /* CharacterDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailVC.swift; sourceTree = "<group>"; };
 		5B4A1C41296104AB00D21379 /* CharacterDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewViewModel.swift; sourceTree = "<group>"; };
+		5B8807D72971B96100B81FDA /* CharacterEpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEpisodeCell.swift; sourceTree = "<group>"; };
+		5B8807D92971B97300B81FDA /* CharacterEpisodeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEpisodeCellViewModel.swift; sourceTree = "<group>"; };
 		5BBDEBC7295957910057A628 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BBDEBCA295957910057A628 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BBDEBCC295957910057A628 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -261,6 +265,7 @@
 				5BD868B229628D9500086370 /* CharacterDetailView.swift */,
 				5BE15220296CCD2100BE7DB8 /* CharacterPhotoCell.swift */,
 				5BE15229296DC8CA00BE7DB8 /* CharacterInfoCell.swift */,
+				5B8807D72971B96100B81FDA /* CharacterEpisodeCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 				5B4A1C41296104AB00D21379 /* CharacterDetailViewViewModel.swift */,
 				5BE15225296CD26500BE7DB8 /* CharacterPhotoCellViewModel.swift */,
 				5BE15227296DC2EA00BE7DB8 /* CharacterInfoCellViewModel.swift */,
+				5B8807D92971B97300B81FDA /* CharacterEpisodeCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -353,6 +359,7 @@
 				5BBDEBCF295957910057A628 /* MainTabBarVC.swift in Sources */,
 				5BBDEBCB295957910057A628 /* AppDelegate.swift in Sources */,
 				5BE15221296CCD2100BE7DB8 /* CharacterPhotoCell.swift in Sources */,
+				5B8807DA2971B97300B81FDA /* CharacterEpisodeCellViewModel.swift in Sources */,
 				5BBDEBFB295A1DA90057A628 /* Endpoint.swift in Sources */,
 				5BBDEC0C295D3D370057A628 /* CharacterListView.swift in Sources */,
 				5BBDEBEF29595CF50057A628 /* LocationsVC.swift in Sources */,
@@ -372,6 +379,7 @@
 				5BBDEBCD295957910057A628 /* SceneDelegate.swift in Sources */,
 				5BBDEBF9295A1D240057A628 /* RMRequest.swift in Sources */,
 				5BBDEC00295A9E290057A628 /* Location.swift in Sources */,
+				5B8807D82971B96100B81FDA /* CharacterEpisodeCell.swift in Sources */,
 				5BBDEBF529595D4D0057A628 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

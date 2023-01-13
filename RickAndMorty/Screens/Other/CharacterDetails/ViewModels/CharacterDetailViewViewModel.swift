@@ -30,6 +30,7 @@ class CharacterDetailViewViewModel {
 	enum SectionType {
 		case photo(viewModel: CharacterPhotoCellViewModel)
 		case info(viewModels: [CharacterInfoCellViewModel])
+		case episode(viewModels: [CharacterEpisodeCellViewModel])
 	}
 	
 	var sections: [SectionType] = []
@@ -47,7 +48,10 @@ class CharacterDetailViewViewModel {
 					 .init(type: .created, value: character.created),
 					 .init(type: .location, value: character.location.name),
 					 .init(type: .episodeCount, value: String(character.episode.count))
-					])
+					]),
+			.episode(viewModels: character.episode.compactMap({ episodeUrl in
+				return CharacterEpisodeCellViewModel(episodeUrl: episodeUrl)
+			}))
 		]
 	}
 	
@@ -78,6 +82,22 @@ class CharacterDetailViewViewModel {
 		let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(150))
 		let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 2)
 		let section = NSCollectionLayoutSection(group: group)
+		return section
+	}
+	
+	
+	public func createEpisodeSectionLayout() -> NSCollectionLayoutSection {
+		let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+		let item = NSCollectionLayoutItem(layoutSize: itemSize)
+		
+		item.contentInsets = .init(top: 10, leading: 5, bottom: 10, trailing: 5)
+		
+		let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .absolute(150))
+		let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+		
+		let section = NSCollectionLayoutSection(group: group)
+		// horizontal scrolling doesn' work without setting this property on the section level
+		section.orthogonalScrollingBehavior = .continuous
 		return section
 	}
 }
