@@ -50,17 +50,22 @@ class CharacterEpisodeCell: UICollectionViewCell {
 	
 	override func prepareForReuse() {
 		super.prepareForReuse()
-		print(#function)
+		nameLabel.text = nil
+		seasonLabel.text = nil
+		airDateLabel.text = nil
 	}
 	
 	
 	public func configure(with viewModel: CharacterEpisodeCellViewModel) {
-		print(#function)
-		viewModel.fetchEpisode()
+
+		viewModel.registerForData { episode in
+			self.nameLabel.text = episode.name
+			self.seasonLabel.text = episode.episode
+			self.airDateLabel.text = episode.air_date
+		}
 		
-		nameLabel.text = "Pilot"
-		seasonLabel.text = "Episode" + "S1E1"
-		airDateLabel.text = "Aired on " + "01/13/2023"
+		// calling fetch but exiting early inside the funcion based on fetch flag
+		viewModel.fetchEpisode()
 	}
 	
 	
