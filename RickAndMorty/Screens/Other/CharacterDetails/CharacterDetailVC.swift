@@ -28,6 +28,7 @@ class CharacterDetailVC: UIViewController {
 		view.backgroundColor = .systemBackground
 		layoutUI()
 		detailView.collectionView.dataSource = self
+		detailView.collectionView.delegate = self
 	}
 	
 	
@@ -80,6 +81,23 @@ extension CharacterDetailVC: UICollectionViewDataSource {
 				let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterEpisodeCell.reuseId, for: indexPath) as! CharacterEpisodeCell
 				cell.configure(with: episodeViewModels[indexPath.item])
 				return cell
+		}
+	}
+}
+
+
+extension CharacterDetailVC: UICollectionViewDelegate {
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		
+		let sectionType = viewModel.sections[indexPath.section]
+		
+		switch sectionType {
+			case .photo, .info: break
+			case .episode (let episodeViewModels):
+				let selectedEpisode = episodeViewModels[indexPath.item].episodeUrl
+				let episodeVC = EpisodeDetailVC(episodeStringUrl: selectedEpisode)
+				navigationController?.pushViewController(episodeVC, animated: true)
 		}
 	}
 }

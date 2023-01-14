@@ -17,7 +17,7 @@ protocol EpisodeDataRender {
 
 final class CharacterEpisodeCellViewModel {
 	
-	private let episodeUrl: String
+	let episodeUrl: String
 	
 	private var isFetching = false
 	
