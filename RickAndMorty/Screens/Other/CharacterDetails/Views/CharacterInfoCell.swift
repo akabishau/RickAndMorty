@@ -88,14 +88,12 @@ class CharacterInfoCell: UICollectionViewCell {
 			titleLabel.topAnchor.constraint(equalTo: titleContainerView.topAnchor),
 			titleLabel.trailingAnchor.constraint(equalTo: titleContainerView.trailingAnchor),
 			titleLabel.bottomAnchor.constraint(equalTo: titleContainerView.bottomAnchor),
-			
-			iconImageView.heightAnchor.constraint(equalToConstant: 30),
+
 			iconImageView.widthAnchor.constraint(equalToConstant: 30),
 			iconImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
 			iconImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
 			iconImageView.bottomAnchor.constraint(equalTo: titleContainerView.topAnchor,constant: -8),
 			
-//			valueLabel.heightAnchor.constraint(equalTo: iconImageView.heightAnchor),
 			valueLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 8),
 			valueLabel.topAnchor.constraint(equalTo: iconImageView.topAnchor),
 			valueLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
