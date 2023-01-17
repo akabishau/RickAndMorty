@@ -39,8 +39,7 @@ final class Service {
 				let result = try JSONDecoder().decode(type.self, from: cachedData)
 				print("got data from cache")
 				completion(.success(result))
-				print("after completion")
-				return
+				return // without it - running network call below
 			} catch {
 				completion(.failure(error))
 			}

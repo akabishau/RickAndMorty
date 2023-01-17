@@ -9,11 +9,11 @@ import UIKit
 
 final class EpisodeDetailVC: UIViewController {
 	
-	private let episodeStringUrl: String
+	private let viewModel: EpisodeDetailViewViewModel
 	
-	
+	//TODO: Can I pass the string instead of URL (in tutorial)?
 	init(episodeStringUrl: String) {
-		self.episodeStringUrl = episodeStringUrl
+		self.viewModel = EpisodeDetailViewViewModel(episodeStringUrl: episodeStringUrl)
 		super.init(nibName: nil, bundle: nil)
 	}
 	
@@ -24,6 +24,6 @@ final class EpisodeDetailVC: UIViewController {
 		super.viewDidLoad()
 		
 		view.backgroundColor = .systemBackground
-
+		viewModel.fetchEpisodeData()
 	}
 }
